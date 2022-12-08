@@ -45,7 +45,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 14vh;
+    height: 100px;
     padding: 10px 0px;
     border-bottom: 1px solid #f15ffe;
     position: fixed;
@@ -438,7 +438,7 @@ header{
         display: flex;
     }
     .btn_menu{
-        top: 32px;
+        top: 35px;
         right: 25px;
         font-size: 2rem;
         color: white;
