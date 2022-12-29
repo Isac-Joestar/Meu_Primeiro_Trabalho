@@ -17,8 +17,7 @@
     scroll-margin-top: 12vh;
   } */
 body{
-    background-color: #1a1a1a;
-
+    background-color: #0f0f0f;
 }
 body::-webkit-scrollbar {
     width: 3px;               /* width of the entire scrollbar */
@@ -50,7 +49,7 @@ header{
     border-bottom: 1px solid #f15ffe;
     position: fixed;
     backdrop-filter: blur(10px);
-    background-color: #1a1a1a62;
+    background-color: #0f0f0f98;
     z-index: 999;
 }
 #content_header{
@@ -109,7 +108,7 @@ header{
    width: 100%;
 }
 #center_header p{
-    margin-left: 180px;
+    margin-left: 200px;
     text-align: center;
     /* background-color: aqua; */
     
@@ -167,6 +166,8 @@ header{
 #ap_title h2{
     width: 300px;
     color: #f2a5f9;
+  
+    
 }
 #ap_title img{
  height: 60px;
@@ -174,6 +175,8 @@ header{
  position: absolute;
  top: -30px;
  right: 0;
+ user-select: none;
+
 
 }
 #ap_img{
@@ -185,20 +188,22 @@ header{
     justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
     animation: moveTxt 1.1s;
+    border-radius: 4px;
 }
 #ap_img img{
    height:120%;
+
 }
 
 #apresentacao_inf{
-    height: 440px;
+    height: 435px;
     width: 60%;
     display: flex;
     align-items: flex-end;
     /* background-color: rgb(223, 223, 223); */
     font-size: 1.3rem;
     font-family: 'Prompt', sans-serif;
-    animation: moveTxt 1.3s;
+    animation: moveTxt 1.2s;
 }
 
 #contato{
@@ -224,7 +229,9 @@ header{
     transition: all 0.5s;
 }
 #contato a button i{
+    margin-left:5px;
     transition: all 0.5s;
+    
 }
 #contato a button:hover{
     -webkit-transform: scale(1.1);
@@ -255,17 +262,19 @@ header{
 
 #procedimentos{
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    /* background-color: aqua; */
 }
 #procedimentos h1{
     margin-top: 20px;
     font-size: 2rem;
     font-family: 'Prompt', sans-serif;
     animation: moveTxt 1.4s;
+    letter-spacing: 2px;
 }
 #cards_content{
     width: 95%;
@@ -277,6 +286,17 @@ header{
     justify-content: center;
     /* background-color: aqua; */
 }
+[data-animate]{
+    transform: translateY(5rem) rotateY(20deg);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+[data-animate].anime{
+    transform: translateY(0) rotateY(0);
+    opacity: 1;
+}
+
 .card{
     height: 30vh;
     width: 450px;
@@ -288,9 +308,8 @@ header{
     padding: 10px;
     border-radius: 5px;
     box-shadow: rgba(255, 255, 255, 0.35) 0px 1px 20px;
-    margin: 10px;
-    animation: moveTxt 1.5s;
-
+    margin: 15px;
+   
 }
 
 .card_img{
@@ -326,7 +345,29 @@ header{
 }
 
 
+footer{
+    min-height: 20vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* background-color: #131313; */
+    border-top: 1px solid rgb(216, 216, 216);
+    margin-top: 10vh;
+    font-size: 1.1rem;
+    font-family: 'PT Serif', serif;
 
+    
+}
+footer div{
+    margin: 10px;
+}
+footer p{
+    color: rgb(221, 221, 221);
+    margin: 0px 5px;
+}
 
 
 
@@ -379,11 +420,28 @@ header{
 
 }
 @media screen and (max-width:660px){
+    #ap_title h1{
+        font-size: 1.5rem;
+    }
+    
+    #ap_title h2{
+        font-size: 1.3rem;
+      
+        
+    }
+    #ap_title img{
+        right: 10px;
+    }
+    #ap_img{
+        height: 300px;
+
+    }
  
     #apresentacao_content{
         height: 90%;
     }
     #apresentacao_inf{
+        font-size: 1.1rem;
         width: 100%
     }
     #content_header nav{
@@ -391,21 +449,19 @@ header{
         position: absolute;
         right: 0;
         top: 0;
-        width: 50vw;
-        height:20vh;
+        width: 200px;
+        height:0vh;
        
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-end;
         user-select: none;
         /* background-color: #15C1CE; */
         transition: all 0.5s;
+      
     }
     .change_bg{
-        width: 50vw !important;
         height: 50vh !important;
-  
-       
     }
     #content_header nav ul{
         width: 100%;
@@ -416,7 +472,7 @@ header{
         justify-content: center;
         background: rgb(2,0,36);
         background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(34,33,43,0.9) 8%, rgba(0,0,0,0.9) 75%);
-        
+        overflow: hidden;
        
         transition: all 0.5s;
         
@@ -446,7 +502,14 @@ header{
         /* background-color: #1d1e26; */
         cursor: pointer;
         user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
        
+    }
+    .btn_menu p{
+        margin-right: 10px;
+        font-size: 1.4rem;
     }
     .btn_menu .abrir{
         display: flex;
@@ -475,6 +538,7 @@ header{
     }
     #ap_title img{
         top: -35px;
+        right: -5px;
        }
 
     #contato a{
@@ -509,7 +573,12 @@ header{
         width: 100%;
         font-size: 1rem; 
     }
-
+    #ap_title h1, #ap_title h2{
+        font-size: 1.3rem;
+    }
+    #ap_img{
+        height: 280px;
+    }
 } 
 @media screen and (max-width:290px){    
 
@@ -520,18 +589,32 @@ header{
         width: 100%;
         font-size: 0.9rem; 
     }
+    #ap_title h1, #ap_title h2{
+        font-size: 1.2rem;
+    }
+    #ap_img{
+        height: 270px;
+    }
 }  
-@media screen and (max-width:290px){    
 
-    #contato a{
-        margin: 0px 5px;
-        width: 100%;
+@media screen and (max-width:260px){    
+
+    #ap_title h1, #ap_title h2{
+        font-size: 1.1rem;
     }
-    #contato a button{
-        width: 100%;
-        font-size: 0.8rem; 
+    #ap_img{
+        height: 260px;
+    }
+    .btn_menu{
+       
+        font-size: 1.7rem;
+   
+    }
+    .btn_menu p{
+       display: none;
     }
 }  
+
 
 
 
@@ -540,11 +623,17 @@ header{
 @media screen and (max-width:550px){    
     #procedimentos h1{
         margin-top: 40px;
-        font-size: 1.8rem;
+        font-size:x-large;
+        /* font-size: 1.8rem; */
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
     }
   
     .card{
-        height: 370px;
+        height: auto;
         width: 270px;
         flex-direction: column;
         justify-content: flex-start;
@@ -554,7 +643,7 @@ header{
     
     .card_img{
         width: 100%;
-        height: 150px;
+        max-height: 150px;
      
        
     }
@@ -578,43 +667,23 @@ header{
     }
 
 } 
-@media screen and (max-width:460px){    
+@media screen and (max-width:450px){    
     #procedimentos h1{
-        font-size: 1.6rem;
+        font-size: 1.3rem;
     }
-}
-@media screen and (max-width:400px){    
+} 
+@media screen and (max-width:370px){    
     #procedimentos h1{
-        width: 100%;
-        text-align: center;
+        font-size: 1.1rem;
     }
-}
+} 
 @media screen and (max-width:330px){    
-    #procedimentos h1{
-        width: 100%;
-        text-align: center;
-    }
-}
-@media screen and (max-width:330px){    
-    #procedimentos h1{
-        width: 100%;
-        text-align: center;
-    }
     .card{
-        height: 370px;
         width: 250px;
-    
-       
-    
     }
 }
 @media screen and (max-width:290px){    
-    #procedimentos h1{
-        width: 100%;
-        text-align: center;
-    }
     .card{
-        height: 430px;
         width: 210px;
         flex-direction: column;
         justify-content: flex-start;
@@ -622,3 +691,19 @@ header{
     
     }
 }
+
+
+/*  Responsividade Footer */
+
+@media screen and (max-width:550px){    
+    footer{
+        text-align: center;
+    }
+    footer div{
+        margin: 15px 0px;
+    }
+    footer p{
+       margin: 15px 0px;;
+    }
+
+} 

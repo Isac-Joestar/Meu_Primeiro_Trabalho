@@ -2,28 +2,32 @@ var ulMenu = document.querySelector('#ul_menu')
 var fechar = document.querySelector('.fechar')
 var abrir = document.querySelector('.abrir')
 var nav = document.querySelector('#nav')
-document.querySelectorAll('.menu').forEach((e)=>{
-    console.log(e)
-    var abrirOuFechar = e.classList.contains('abrir')
 
-    e.addEventListener('click', ()=>{
-        if(abrirOuFechar){
-            e.style.display = 'none'
-            fechar.style.display = 'flex'
-            ulMenu.classList.remove('of')
-            nav.classList.add('change_bg')
-        }else{
-            e.style.display = 'none'
-            abrir.style.display = 'flex'
+document.querySelector('.btn_menu').addEventListener('click', ()=>{
+  // console.log(abrir)
+  // console.log(fechar)
+  if(abrir.style.display == 'flex' ||
+    abrir.style.display == 'undefined' ||
+    abrir.style.display == ''){
+        
+        abrir.style.display = 'none'
+        fechar.style.display = 'flex'
+        ulMenu.classList.remove('of')
+        nav.classList.add('change_bg')
+     }else{
+        fechar.style.display = 'none'
+        abrir.style.display = 'flex'
 
-            nav.classList.remove('change_bg')
-            ulMenu.classList.add('of')  
-            
-        }
-    })
-   
-   
+        nav.classList.remove('change_bg')
+        setTimeout(()=>{
+          ulMenu.classList.add('of')  
+        },500)
+        
+                  
+    }
+  
 })
+
 
 
 // scroll automatico suave
@@ -94,6 +98,45 @@ function smoothScrollTo(endX, endY, duration) {
 
 
 
+
+
+// Animação scroll
+const debounce = function(func, wait, immediate) {
+  let timeout;
+  return function(...args) {
+    const context = this;
+    const later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};
+
+
+const target = document.querySelectorAll('[data-animate]')
+const animationClass = 'anime';
+
+function animeScroll(){
+  const windowTop = window.pageYOffset + (window.innerHeight * 3.6 / 4);
+  target.forEach((e)=>{
+    // console.log(e.offsetTop)
+    if((windowTop) > e.offsetTop){
+      e.classList.add(animationClass)
+    }else{
+      e.classList.remove(animationClass)
+    }
+  })
+}
+animeScroll();
+if(target.length){
+  window.addEventListener('scroll', debounce(()=>{
+    animeScroll();
+  }, 15));
+}
 
 
 
