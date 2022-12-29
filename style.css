@@ -497,7 +497,7 @@ footer p{
         top: 35px;
         right: 25px;
         font-size: 2rem;
-        color: white;
+        color: #f2a5f9;
         position: absolute;
         /* background-color: #1d1e26; */
         cursor: pointer;
@@ -507,7 +507,11 @@ footer p{
         justify-content: center;
        
     }
+    .btn_menu i{
+        color: #f2a5f9;
+    }
     .btn_menu p{
+        color: #f2a5f9;
         margin-right: 10px;
         font-size: 1.4rem;
     }
